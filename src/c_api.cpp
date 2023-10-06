@@ -1,5 +1,5 @@
 #include "c_api.h"
-#include "simpson.hpp"
+#include "integrator/simpson.hpp"
 
 double simpson_integrate(const double a,
                  const double b,

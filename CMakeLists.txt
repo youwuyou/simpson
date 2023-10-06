@@ -1,31 +1,22 @@
-# require minimum version of Cmake
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.10)
 
-# project name
-project(SimpsonLib)
+project(SimpsonIntegration)
 
-# For CxxWrap.jl
-# find_package(JlCxx REQUIRED)
+# Add option for building shared libraries
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-
-# option to build STATIC or SHARED library
-option(BUILD_SIMPSON_SHARED "Build the simpson library shared." ON)
-if(BUILD_SIMPSON_SHARED)
-  set(SIMPSON_LIBRARY_TYPE SHARED)
+# Depending on the option, set the library type
+if(BUILD_SHARED_LIBS)
+    set(LIB_TYPE SHARED)
 else()
-  set(SIMPSON_LIBRARY_TYPE STATIC)
+    set(LIB_TYPE STATIC)
 endif()
 
-# setting warning compiler flags
-add_compile_options(-Wall -Wextra -Wpedantic)
+# Include directories for the project
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_subdirectory(integrator)
+# Add subdirectories to the build
+add_subdirectory(src)
 
-# add executable to the project using the specified source file
-add_executable(integrate_sin integrate_sin.cpp)
-
-# specify the library needed
-target_link_libraries(integrate_sin simpson)
-
-# specify install rules
-install(TARGETS integrate_sin DESTINATION bin)
+# If you wish to build examples as well
+add_subdirectory(examples)

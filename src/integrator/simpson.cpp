@@ -2,7 +2,7 @@
  * Simpson library implementation
  */
 
-#include "simpson.hpp"
+#include "integrator/simpson.hpp"
 
 #include <cstdlib>
 #include <cassert>
