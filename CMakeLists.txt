@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(SimpsonIntegration)
 
 # Add option for building shared libraries
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
 # Depending on the option, set the library type
 if(BUILD_SHARED_LIBS)
