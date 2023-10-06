@@ -4,6 +4,10 @@ add_library(simpson ${LIB_TYPE}
     c_api.cpp
 )
 
+install(TARGETS simpson
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
+
 # Assign a custom output name when built as a shared library
 if(BUILD_SHARED_LIBS)
     set_target_properties(simpson PROPERTIES OUTPUT_NAME simpson)
