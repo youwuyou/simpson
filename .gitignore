@@ -2,6 +2,7 @@
 *~
 *.py[cod]
 *.so
+*.jl
 *.cfg
 !.isort.cfg
 !setup.cfg
@@ -53,6 +54,7 @@ docs/api/*
 docs/_rst/*
 docs/_build/*
 cover/*
+products/*
 MANIFEST
 tests.xml
 
